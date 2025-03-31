@@ -1,4 +1,4 @@
-import { Context, noop, Schema, Session } from 'koishi'
+import { Context, noop, Schema, Session } from '@satorijs/core'
 import { HttpServer } from '../http'
 import { WsClient, WsServer } from '../ws'
 import { QQGuildBot } from './qqguild'

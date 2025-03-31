@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { camelize, Dict } from 'koishi'
+import { camelize, Dict } from '@satorijs/core'
 import { BaseBot, CQCode } from './bot'
 
 export interface Response {

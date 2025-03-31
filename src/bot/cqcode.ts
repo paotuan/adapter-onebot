@@ -1,4 +1,4 @@
-import { Dict, h } from 'koishi'
+import { Dict, h } from '@satorijs/core'
 
 export function CQCode(type: string, attrs: Dict<string>) {
   if (type === 'text') return attrs.content

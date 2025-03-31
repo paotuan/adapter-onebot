@@ -1,5 +1,5 @@
-import { Adapter, Context, HTTP, Logger, Schema, Time, Universal } from 'koishi'
-import { WebSocketLayer } from '@koishijs/plugin-server'
+import { Adapter, Context, HTTP, Logger, Schema, Time, Universal } from '@satorijs/core'
+import { WebSocketLayer } from '@cordisjs/plugin-server'
 import { OneBotBot } from './bot'
 import { dispatchSession, Response, TimeoutError } from './utils'
 
@@ -57,6 +57,7 @@ export class WsServer<C extends Context> extends Adapter<C, OneBotBot<C, OneBotB
       if (!bot) return socket.close(1008, 'invalid x-self-id')
 
       bot[kSocket] = socket
+      // @ts-ignore
       accept(socket, bot)
     })
 

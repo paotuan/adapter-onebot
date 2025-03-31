@@ -1,4 +1,4 @@
-import { Context, Dict, h, MessageEncoder, pick, Universal } from 'koishi'
+import { Context, Dict, h, MessageEncoder, pick, Universal } from '@satorijs/core'
 import { BaseBot } from './base'
 import { CQCode } from './cqcode'
 import { fileURLToPath } from 'node:url'

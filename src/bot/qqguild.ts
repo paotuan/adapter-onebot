@@ -1,4 +1,4 @@
-import { Context, Universal } from 'koishi'
+import { Context, Universal } from '@satorijs/core'
 import { BaseBot } from './base'
 import { OneBotBot } from '.'
 import * as OneBot from '../utils'

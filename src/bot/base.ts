@@ -1,4 +1,4 @@
-import { Bot, Context, Schema, Universal } from 'koishi'
+import { Bot, Context, Schema, Universal } from '@satorijs/core'
 import * as OneBot from '../utils'
 import { OneBotMessageEncoder, PRIVATE_PFX } from './message'
 

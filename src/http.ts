@@ -1,5 +1,5 @@
-import { Adapter, Context, HTTP, Schema } from 'koishi'
-import {} from '@koishijs/plugin-server'
+import { Adapter, Context, HTTP, Schema } from '@satorijs/core'
+import {} from '@cordisjs/plugin-server'
 import { OneBotBot } from './bot'
 import { dispatchSession } from './utils'
 import { createHmac } from 'crypto'
