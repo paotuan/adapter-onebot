@@ -36,7 +36,7 @@
     "build": "yarn run build:js && yarn run build:tsc"
   },
   "devDependencies": {
-    "@cordisjs/plugin-server": "^0.2.9",
+    "@cordisjs/plugin-server": "^0.2.9"
   },
   "dependencies": {
     "@satorijs/core": "^4.6.0",
