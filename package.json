@@ -1,6 +1,6 @@
 {
   "name": "@paotuan/adapter-onebot",
-  "version": "6.8.0",
+  "version": "6.9.3",
   "description": "OneBot Adapter for Koishi",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -35,7 +35,7 @@
     "build": "yarn run build:js && yarn run build:tsc"
   },
   "devDependencies": {
-    "@cordisjs/plugin-server": "^0.2.2",
+    "@cordisjs/plugin-server": "^0.2.9",
     "@types/node": "^18.7.17",
     "esbuild": "^0.23.1",
     "typescript": "^5.6.2"

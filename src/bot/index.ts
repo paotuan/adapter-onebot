@@ -1,4 +1,4 @@
-import { Context, noop, Schema, Session } from '@satorijs/core'
+import { Context, noop, Schema, Session, Universal } from '@satorijs/core'
 import { HttpServer } from '../http'
 import { WsClient, WsServer } from '../ws'
 import { QQGuildBot } from './qqguild'
@@ -55,6 +55,14 @@ export class OneBotBot<C extends Context, T extends OneBotBot.Config = OneBotBot
   }
 
   async getChannel(channelId: string) {
+    if (channelId.startsWith('private:')) {
+      const userId = channelId.slice('private:'.length)
+      return {
+        id: channelId,
+        type: Universal.Channel.Type.DIRECT,
+        name: userId,
+      } satisfies Universal.Channel
+    }
     const data = await this.internal.getGroupInfo(channelId)
     return OneBot.adaptChannel(data)
   }
@@ -97,11 +105,19 @@ export class OneBotBot<C extends Context, T extends OneBotBot.Config = OneBotBot
 
   async checkPermission(name: string, session: Partial<Session>) {
     if (name === 'onebot.group.admin') {
-      return session.author?.roles?.[0] === 'admin'
+      return session.author?.roles?.[0]?.id === 'admin'
     } else if (name === 'onebot.group.owner') {
-      return session.author?.roles?.[0] === 'owner'
+      return session.author?.roles?.[0]?.id === 'owner'
     }
     return super.checkPermission(name, session)
+  }
+
+  async createReaction(channelId: string, messageId: string, emojiId: string) {
+    return this.internal.setMsgEmojiLike(messageId, emojiId, true)
+  }
+
+  async deleteReaction(channelId: string, messageId: string, emojiId: string, userId?: string) {
+    return this.internal.setMsgEmojiLike(messageId, emojiId, false)
   }
 }
 
